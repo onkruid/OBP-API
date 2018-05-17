@@ -25,6 +25,7 @@
     <maven.scaladoc.vscaladocVersion>1.2-m1</maven.scaladoc.vscaladocVersion>
     <vscaladoc.links.liftweb.pathsufix>scaladocs/</vscaladoc.links.liftweb.pathsufix>
     <vscaladoc.links.liftweb.baseurl>http://scala-tools.org/mvnsites/liftweb</vscaladoc.links.liftweb.baseurl>
+    <jetty.port>9090</jetty.port>
   </properties>
 
   <repositories>
@@ -432,7 +433,6 @@
             </jvmArgs>
             <scalaVersion>${scala.compiler}</scalaVersion>
             <scalaCompatVersion>${scala.version}</scalaCompatVersion>
-            <recompileMode>incremental</recompileMode>
             <useZincServer>true</useZincServer>
           </configuration>
           <executions>
@@ -496,6 +496,10 @@
         <artifactId>maven-jetty-plugin</artifactId>
         <version>6.1.26</version>
         <configuration>
+          <httpConnector>
+            <!--host>localhost</host-->
+            <port>9999</port>
+          </httpConnector>
           <contextPath>/</contextPath>
           <scanIntervalSeconds>5</scanIntervalSeconds>
           <jvmArgs>-Xmx512m -Xms512m</jvmArgs>
